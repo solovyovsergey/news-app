@@ -1,0 +1,25 @@
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 20px;
+}
+
+.sidebar p {
+    font-weight: bold;
+    margin: 5px 0;
+}
+.sidebar textarea {
+    resize:vertical;
+}
+
+.input-field>label:not(.label-icon).active {
+    transform: translateY(-14px) scale(0.8);
+}
+
+.sidebar button {
+    margin-top: 10px;
+}
