@@ -1,0 +1,22 @@
+li.article {
+    padding: 10px !important;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.article .btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+}
+
+.article .description {
+    margin-top: 20px !important;
+    display: block;
+    border-radius: 5px;
+}
