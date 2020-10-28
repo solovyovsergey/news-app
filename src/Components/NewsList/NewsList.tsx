@@ -1,32 +1,26 @@
-import React, {useEffect, useState} from 'react';
-import {IArticle, IData} from '../../models';
+import React, {useEffect} from 'react';
+import {IArticle} from '../../models';
 import {Article} from '../Article';
 import {Counter} from '../Counter';
 
 import './NewsList.css';
 
-export const NewsList: React.FC = () => {
-    const [articles, setArticles] = useState<IArticle[]>([]);
+interface IProps {
+    articles: IArticle[],
+    onLoadNews: () => void;
+    removeArticle: (id: number) => void;
+}
 
-    const api = async <T extends {}>(url: string): Promise<T> => {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(response.statusText);
-        const json: { data: T } = await response.json();
-        return json.data;
+export const Component: React.FC<IProps> = (
+    {
+        articles,
+        onLoadNews,
+        removeArticle
     }
-
+) => {
     useEffect(() => {
-        const url = `https://test-api-app-for-react.herokuapp.com/api/v1/news`;
-        api<IData>(url)
-            .then(data => setArticles([...data.articles]))
-            .catch(err => console.log(err));
+        onLoadNews();
     }, []);
-
-    const removeArticle = (id: number): void =>
-        setArticles(
-            [...articles
-                .filter(article => article.id !== id)]
-        );
 
     const showArticle = (article: IArticle) =>
         <Article key={article.id} article={article} removeHandler={removeArticle}/>

@@ -10,8 +10,9 @@ interface IComponent {
     removeHandler: (id: number) => void;
 };
 
+const icon = <i className='material-icons'>delete</i>;
+
 export const Article: React.FC<IComponent> = ({article, removeHandler}) => {
-    const icon = <i className='material-icons'>delete</i>;
     const onClick = (): void => {
         removeHandler(article.id);
     }
