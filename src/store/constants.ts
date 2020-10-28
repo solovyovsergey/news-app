@@ -1,0 +1,5 @@
+export const LOAD_NEWS_STARTED = 'LOAD_NEWS_STARTED';
+export const LOAD_NEWS_SUCCESS = 'LOAD_NEWS_SUCCESS';
+export const LOAD_NEWS_FAILURE = 'LOAD_NEWS_FAILURE';
+export const REMOVE_NEWS = 'REMOVE_NEWS';
+export const ADD_NEWS = 'ADD_NEWS';

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {Button} from '../Button';
-import './Sidebar.css';
 import {IArticle, IFormData} from '../../models';
+
+import './Sidebar.css';
 
 
 const initFormData: IFormData = {
@@ -11,7 +12,7 @@ const initFormData: IFormData = {
     description: ''
 };
 
-export const Sidebar: React.FC<{onSubmit: (data: Omit<IArticle, 'id'>) => void}> = (props) => {
+export const Component: React.FC<{ submit: (data: Omit<IArticle, 'id'>) => void }> = ({submit}) => {
     const [formData, setFormData] = useState<IFormData>(initFormData);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
@@ -37,7 +38,7 @@ export const Sidebar: React.FC<{onSubmit: (data: Omit<IArticle, 'id'>) => void}>
         event.preventDefault()
         setFormData({...initFormData})
         const data = createData()
-        props.onSubmit(data);
+        submit(data);
     }
 
     return (
@@ -53,7 +54,6 @@ export const Sidebar: React.FC<{onSubmit: (data: Omit<IArticle, 'id'>) => void}>
                         value={formData.name}
                         onChange={handleChange}
                     />
-
                     <label htmlFor='lastname'>Last Name:</label>
                     <input
                         id='lastname'
@@ -63,18 +63,16 @@ export const Sidebar: React.FC<{onSubmit: (data: Omit<IArticle, 'id'>) => void}>
                         onChange={handleChange}
                     />
                 </div>
-
                 <div>
                     <p>News Info:</p>
-
                     <label htmlFor='title'>Title:</label>
                     <input
                         id='title'
                         type='text'
                         required
                         value={formData.title}
-                        onChange={handleChange}/>
-
+                        onChange={handleChange}
+                    />
                     <label htmlFor='description'>Description:</label>
                     <textarea
                         id='description'

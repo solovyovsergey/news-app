@@ -1,1 +1,1 @@
-export * from './NewsList';
+export {Component as NewsListComponent} from './NewsList';
