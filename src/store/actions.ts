@@ -48,7 +48,7 @@ export const removeNews = (id: number): IAction => {
 
 export const addNews = (data: Omit<IArticle, 'id'>): IAction => {
     const news = [...store.getState().news];
-    const maxId = getMax(news, 'id');
+    const maxId = news.length ? getMax(news, 'id') : 0;
     const value = {...data, id: (maxId + 1)}
 
     return {
